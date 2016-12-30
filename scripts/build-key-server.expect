@@ -1,0 +1,29 @@
+#!/usr/bin/expect
+
+spawn ./build-key-server $env(KEY_NAME)
+expect "Country Name (2 letter code)"
+send -- "$env(KEY_COUNTRY)\r"
+expect "State or Province Name (full name)"
+send -- "$env(KEY_PROVINCE)\r"
+expect "Locality Name (eg, city)"
+send -- "$env(KEY_CITY)\r"
+expect "Organization Name (eg, company)"
+send -- "$env(KEY_ORG)\r"
+expect "Organizational Unit Name (eg, section)"
+send -- "$env(KEY_OU)\r"
+expect "Common Name (eg, your name or your server's hostname)"
+send -- "$env(HOSTNAME)\r"
+expect "Name "
+send -- "$env(KEY_NAME)\r"
+expect "Email Address "
+send -- "$env(KEY_EMAIL)\r"
+expect "A challenge password "
+send -- "\r"
+expect "An optional company name "
+send -- "\r"
+expect "Sign the certificate?"
+send -- "y\r"
+expect "commit? "
+send -- "y\r"
+expect eof
+
