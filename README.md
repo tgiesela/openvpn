@@ -42,7 +42,7 @@ The volume parameters (-v) can be used to store the configuration of openvpn and
 the key database. You can also use a data container to persist the data.
 
 Openvpn/easy-rsa will be configured using the environment variables.
-All varibales starting with KEY_... are used to initialize the variables which 
+All variables starting with KEY_... are used to initialize the variables which 
 are used to generate the certificates. The variables are optional. When omitted
 the easy-rsa default values apply.
 

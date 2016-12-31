@@ -75,14 +75,18 @@ appSetup () {
     sed -i "s/<openvpnmask>/${OPENVPN_NETWORK_MASK}/g" /etc/openvpn/server.conf
 
     # setup iptables for routing
-    mv /tmp/iptables.conf /etc/openvpn/iptables.conf
+    mv /tmp/iptables.sh /etc/openvpn/iptables.sh
+
     # convert ip mask to ip/masklen
     info "NEWIP=$(/tmp/networkid.sh ${OPENVPN_NETWORK_IP} ${OPENVPN_NETWORK_MASK})"
     NEWIP=$(/tmp/networkid.sh ${OPENVPN_NETWORK_IP} ${OPENVPN_NETWORK_MASK})
-    sed -i "s'10.8.0.0/24'${NEWIP}'g" /etc/openvpn/iptables.conf
+    sed -i "s'10.8.0.0/24'${NEWIP}'g" /etc/openvpn/iptables.sh
     info "NEWIP=$(/tmp/networkid.sh ${DOCKER_IP} ${DOCKER_MASK})"
     NEWIP=$(/tmp/networkid.sh ${DOCKER_IP} ${DOCKER_MASK})
-    sed -i "s'192.168.0.0/24'${NEWIP}'g" /etc/openvpn/iptables.conf
+    sed -i "s'192.168.0.0/24'${NEWIP}'g" /etc/openvpn/iptables.sh
+
+    chmod +x /etc/openvpn/iptables.sh
+    /etc/openvpn/iptables.sh
 
     # Save the iptables setup
     iptables-save > /etc/openvpn/iptables-dump.ipt

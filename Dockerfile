@@ -28,7 +28,7 @@ RUN apt-get install -y expect pwgen
 ADD config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD scripts/buildca.expect scripts/build-key-server.expect /tmp/
 ADD config/server.conf config/base.conf scripts/makeconfig.sh scripts/networkid.sh /tmp/
-ADD iptables/iptables.conf /tmp/
+ADD iptables/iptables.sh /tmp/
 ADD scripts/init.sh /init.sh
 RUN chmod 755 /init.sh
 
