@@ -62,6 +62,15 @@ You can now copy this file from the container to the host:
 Sometimes during the first time installation, you will have to wait a while when
 the Diffie Hellman parameters are generated.
 
+You will have to change the change the base.conf file. The following line:
+
+	remote ubuntuglassfish.thuis.local 1197
+
+needs to be changed into 
+
+	remote <your-openvpn-server> 1197
+
+
 ## Environment variables
 
 - KEY_COUNTRY:     (optional) the country abbreviaion ("NL")
