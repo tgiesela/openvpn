@@ -3,7 +3,7 @@ MAINTAINER Tonny Gieselaar <tonny@devosverzuimbeheer.nl>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-VOLUME ["/etc/openvpn","etc/easy-rsa"]
+VOLUME ["/etc/openvpn","/etc/easy-rsa"]
 
 # Setup ssh and install supervisord and some additional tools
 RUN apt-get update
