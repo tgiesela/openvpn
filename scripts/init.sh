@@ -103,6 +103,8 @@ appSetup () {
 appStart () {
     [ -f /etc/openvpn/.alreadysetup ] && echo "Skipping setup..." || appSetup
 
+    /etc/openvpn/iptables.sh
+
     # Start the services
     /usr/bin/supervisord
 }

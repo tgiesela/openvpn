@@ -9,7 +9,7 @@ VOLUME ["/etc/openvpn","etc/easy-rsa"]
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y openssh-server supervisor \
-	net-tools nano apt-utils wget rsyslog \
+	net-tools nano apt-utils wget \
 	dnsutils iputils-ping
 
 # Create folder for ssh and supervisor

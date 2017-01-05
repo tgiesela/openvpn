@@ -11,6 +11,7 @@ required to configure the Openvpn server:
 
 ```
 docker run 
+	--privileged \
         -h openvpn \
         -v ${PWD}/openvpn/openvpn:/etc/openvpn \
         -v ${PWD}/openvpn/easy-rsa:/etc/easy-rsa \

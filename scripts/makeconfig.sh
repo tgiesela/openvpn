@@ -2,6 +2,10 @@
 
 # First argument: Client identifier
 
+if [ $# eq 0 ]; then
+        echo "Please start as $0 <name>" && exit 1
+fi
+
 if [ ! -f ${KEY_DIR}/${1}.crt ]; then
 	cd /etc/easy-rsa/openvpn-ca
 	source vars
