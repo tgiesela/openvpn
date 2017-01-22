@@ -82,6 +82,6 @@ docker run \
 	--dns=${DNS_IP_ADDRESS} \
 	${CUSTOMNETWORKNAME} \
 	-p 1197:1197 \
-	-d tonny/openvpn:v0.1
+	-d tgiesela/openvpn:v0.1
 
 
