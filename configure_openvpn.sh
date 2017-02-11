@@ -42,9 +42,16 @@ fi
 
 read -p "ip-address DNS-server: " DNS_IP_ADDRESS
 if [ -z $DNS_IP_ADDRESS ]; then
-    DNS_IP_ADDRESS=localhost;
+    DNS_IP_ADDRESS=localhost
 else
     DNS_IP_ADDRESS=${DNS_IP_ADDRESS}
+fi
+
+read -p "fixed ip-address OPENVPN-server: " FIXED_IP_ADDRESS
+if [ -z $FIXED_IP_ADDRESS ]; then
+    FIXED_IP_ADDRESS=
+else
+    FIXED_IP_ADDRESS="--ip=${FIXED_IP_ADDRESS}"
 fi
 
 echo "Please enter information used for the certificates"
@@ -77,6 +84,7 @@ docker run \
 	-e LOCALNETWORK_IP="${LOCALNETWORK_IP}" \
 	-e LOCALNETWORK_MASK="${LOCALNETWORK_MASK}" \
 	-e ROOT_PASSWORD="${ROOT_PASSWORD}" \
+	${FIXED_IP_ADDRESS} \
 	--name openvpn \
 	--dns-search=${SAMBA_DOMAIN} \
 	--dns=${DNS_IP_ADDRESS} \
